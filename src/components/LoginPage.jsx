@@ -7,22 +7,25 @@ const LoginPage = ({ onLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [view, setView] = useState('login'); // 'login' or 'forgot'
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    setError('');
     
     // Strict Identifier Validation (Email or Phone)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\+?[0-9]{8,15}$/;
     
     if (!emailRegex.test(email) && !phoneRegex.test(email)) {
-      alert("Erreur : Veuillez entrer un email valide ou un numéro de téléphone au format international.");
+      setError("Veuillez entrer un email valide ou un numéro de téléphone.");
       return;
     }
 
     // Simplified Password Validation for MVP: 8+ characters
     if (password.length < 8) {
-      alert("Erreur : Le mot de passe doit contenir au moins 8 caractères.");
+      setError("Le mot de passe doit contenir au moins 8 caractères.");
       return;
     }
 
@@ -48,7 +51,7 @@ const LoginPage = ({ onLogin }) => {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-20 px-6 lg:px-8 animate-fade-in">
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-          <img src="school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-6 drop-shadow-xl" />
+          <img src="logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-6 drop-shadow-xl" />
           <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Mot de passe oublié</h2>
           <p className="mt-3 text-sm text-slate-500 font-medium">Réinitialisation sécurisée de votre compte.</p>
         </div>
@@ -100,7 +103,7 @@ const LoginPage = ({ onLogin }) => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-900/5 rounded-full -mr-48 -mb-48 blur-3xl"></div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10">
-        <img src="/school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-4 drop-shadow-xl" />
+        <img src="logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-4 drop-shadow-xl" />
         <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Bienvenue sur SchoolTracking</h2>
         <p className="mt-3 text-sm text-slate-500 font-medium h-5">
           {role === 'admin' ? "Gérez votre établissement en toute simplicité." : 
@@ -111,10 +114,11 @@ const LoginPage = ({ onLogin }) => {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
         <div className="glass py-10 px-8 shadow-premium rounded-[2.5rem] border border-white">
-          <div className="flex bg-slate-100 p-1.5 rounded-[1.25rem] shadow-inner mb-10 border border-slate-200">
+          <div className="flex bg-slate-100 p-1.5 rounded-[1.25rem] shadow-inner mb-6 border border-slate-200">
             {['parent', 'teacher', 'admin'].map((r) => (
               <button
                 key={r}
+                type="button"
                 onClick={() => setRole(r)}
                 className={`flex-1 py-3 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${
                   role === r ? 'bg-white text-slate-900 shadow-xl' : 'text-slate-500 hover:text-slate-800'
@@ -124,6 +128,12 @@ const LoginPage = ({ onLogin }) => {
               </button>
             ))}
           </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-2xl text-red-600 text-xs font-bold animate-shake text-center">
+              <i className="fa-solid fa-circle-exclamation mr-2"></i> {error}
+            </div>
+          )}
 
           <form className="space-y-8" onSubmit={handleSubmit}>
             <div>
