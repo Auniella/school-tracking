@@ -48,7 +48,7 @@ const LoginPage = ({ onLogin }) => {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-20 px-6 lg:px-8 animate-fade-in">
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-          <img src="/school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-6 drop-shadow-xl" />
+          <img src="school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-6 drop-shadow-xl" />
           <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Mot de passe oublié</h2>
           <p className="mt-3 text-sm text-slate-500 font-medium">Réinitialisation sécurisée de votre compte.</p>
         </div>
