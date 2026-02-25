@@ -103,7 +103,7 @@ const LoginPage = ({ onLogin }) => {
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10">
         <div className="mx-auto w-16 h-16 bg-slate-900 border-4 border-white shadow-premium rounded-[1.5rem] flex items-center justify-center text-white font-black text-3xl">E</div>
-        <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Bienvenue sur EcoLink</h2>
+        <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Bienvenue sur SchoolTracking</h2>
         <p className="mt-3 text-sm text-slate-500 font-medium h-5">
           {role === 'admin' ? "Gérez votre établissement en toute simplicité." : 
            role === 'teacher' ? "Préparez vos cours et suivez vos élèves sereinement." : 
