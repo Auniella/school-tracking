@@ -1,27 +1,32 @@
-# Configuration Finale Twilio & Supabase
-
-Pour que les messages soient réellement envoyés, vous devez déployer la "Edge Function" sur votre projet Supabase.
-
-### 1. Configuration des Secrets (Identifiants)
-Ouvrez votre terminal et exécutez ces commandes pour enregistrer vos clés Twilio de manière sécurisée dans Supabase :
+### 1. Authentification
+Avant tout, vous devez lier votre ordinateur à votre compte Supabase :
 
 ```bash
-supabase secrets set TWILIO_ACCOUNT_SID=US6783bab35990c5ec2b58378ec80152eb
-supabase secrets set TWILIO_AUTH_TOKEN=XLNVAJGAW7SSULP5LVEFRY2X
-supabase secrets set TWILIO_FROM_NUMBER="+18382063137"
+npx supabase login
+```
+*(Une fenêtre de navigateur s'ouvrira pour vous demander de confirmer)*
+
+### 2. Configuration des Secrets (Identifiants)
+Une fois connecté, exécutez ces commandes :
+
+```bash
+# Remplacez les valeurs ci-dessous par vos identifiants réels
+npx supabase secrets set TWILIO_ACCOUNT_SID=AC...VOTRE_ACCOUNT_SID
+npx supabase secrets set TWILIO_AUTH_TOKEN=dc...VOTRE_AUTH_TOKEN
+npx supabase secrets set TWILIO_FROM_NUMBER="+18382063137"
 ```
 
 ### 2. Déploiement de la Fonction
-Si vous avez installé la CLI Supabase, exécutez :
+Utilisez `npx` pour exécuter la CLI sans l'installer globalement :
 
 ```bash
 # Créez le dossier de la fonction
-supabase functions new send-sms
+npx supabase functions new send-sms
 
 # Copiez le contenu de 'supabase-edge-function.js' dans 'supabase/functions/send-sms/index.ts'
 
-# Déployez
-supabase functions deploy send-sms
+# Déployez (il vous demandera peut-être de vous connecter : npx supabase login)
+npx supabase functions deploy send-sms
 ```
 
 ---
