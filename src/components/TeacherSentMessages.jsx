@@ -3,7 +3,7 @@ import React from 'react';
 const TeacherSentMessages = ({ messages }) => {
   const displayMessages = messages || [
     { id: 1, recipient: 'M. Dupont', content: 'Votre enfant Lucas a été marqué présent ce matin.', date: 'Hier', time: '08:45' },
-    { id: 2, recipient: 'Mme. Bernard', content: 'EcoLink : Cher parent, votre enfant Emma est absent ce jour.', date: 'Hier', time: '09:12' },
+    { id: 2, recipient: 'Mme. Bernard', content: 'SchoolTracking : Cher parent, votre enfant Emma est absent ce jour.', date: 'Hier', time: '09:12' },
   ];
 
   return (

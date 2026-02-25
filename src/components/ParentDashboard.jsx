@@ -313,7 +313,7 @@ const ParentDashboard = ({ forceOpenModal = false, initialView = 'summary', noti
                     <span className="text-[10px] font-black text-slate-300 uppercase tracking-tighter">{notif.date}, {notif.time}</span>
                   </div>
                   <p className="text-sm text-slate-800 font-black leading-snug mb-1">{notif.content}</p>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Source: {notif.sender || 'Système EcoLink'}</p>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Source: {notif.sender || 'Système SchoolTracking'}</p>
                 </div>
               </div>
             )) : (

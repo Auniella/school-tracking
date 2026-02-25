@@ -23,7 +23,7 @@ function App() {
   ]);
 
   const [notifications, setNotifications] = useState([
-    { id: 1, recipient: 'Mme. Bernard', content: 'EcoLink : Cher parent, votre enfant Emma Bernard est absent ce jour. Merci de régulariser cette situation via votre espace parent.', date: '25 Féb 2026', time: '08:45', type: 'absence' },
+    { id: 1, recipient: 'Mme. Bernard', content: 'SchoolTracking : Cher parent, votre enfant Emma Bernard est absent ce jour. Merci de régulariser cette situation via votre espace parent.', date: '25 Féb 2026', time: '08:45', type: 'absence' },
   ]);
 
   const [grades, setGrades] = useState([
@@ -32,7 +32,7 @@ function App() {
     { id: 103, studentId: 1, subject: 'Sciences', value: 15, theme: 'Système Solaire', date: '23 Féb 2026', teacher: 'M. Petit' },
   ]);
 
-  const [messageTemplate, setMessageTemplate] = useState("EcoLink : Cher parent, votre enfant [NOM] est absent ce jour. Merci de régulariser cette situation via votre espace parent.");
+  const [messageTemplate, setMessageTemplate] = useState("SchoolTracking : Cher parent, votre enfant [NOM] est absent ce jour. Merci de régulariser cette situation via votre espace parent.");
 
   const handleLogin = (userData) => {
     setUser(userData);

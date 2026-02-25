@@ -48,7 +48,7 @@ const LoginPage = ({ onLogin }) => {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-20 px-6 lg:px-8 animate-fade-in">
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-          <div className="mx-auto w-16 h-16 bg-slate-900 border-4 border-white shadow-premium rounded-[1.5rem] flex items-center justify-center text-white font-black text-3xl">E</div>
+          <img src="/school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-6 drop-shadow-xl" />
           <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Mot de passe oublié</h2>
           <p className="mt-3 text-sm text-slate-500 font-medium">Réinitialisation sécurisée de votre compte.</p>
         </div>
@@ -100,7 +100,7 @@ const LoginPage = ({ onLogin }) => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-900/5 rounded-full -mr-48 -mb-48 blur-3xl"></div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10">
-        <div className="mx-auto w-16 h-16 bg-slate-900 border-4 border-white shadow-premium rounded-[1.5rem] flex items-center justify-center text-white font-black text-3xl">E</div>
+        <img src="/school-tracking/logo.png" alt="Logo" className="mx-auto w-24 h-24 object-contain mb-4 drop-shadow-xl" />
         <h2 className="mt-8 text-4xl font-black text-slate-900 uppercase tracking-tighter">Bienvenue sur SchoolTracking</h2>
         <p className="mt-3 text-sm text-slate-500 font-medium h-5">
           {role === 'admin' ? "Gérez votre établissement en toute simplicité." : 

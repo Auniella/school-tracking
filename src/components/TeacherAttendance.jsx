@@ -26,7 +26,7 @@ const TeacherAttendance = ({ students, setStudents, updateStudentStatus }) => {
     updateStudentStatus(id, status);
     if (notifyParent) {
       const student = students.find(s => s.id === id);
-      alert(`Message WhatsApp envoyé : "EcoLink : Cher parent, votre enfant ${student.name} est absent ce jour. Merci de régulariser cette situation via votre espace parent."`);
+      alert(`Message WhatsApp envoyé : "SchoolTracking : Cher parent, votre enfant ${student.name} est absent ce jour. Merci de régulariser cette situation via votre espace parent."`);
     }
     setPendingAbsence(null);
   };

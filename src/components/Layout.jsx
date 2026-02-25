@@ -26,9 +26,9 @@ const Sidebar = ({ isOpen, toggleSidebar, role, currentView, setView }) => {
 
   return (
     <aside className={`fixed top-0 left-0 z-40 h-screen transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 bg-white border-r border-slate-200 w-64`}>
-      <div className="flex items-center gap-2 p-6 border-b border-slate-100">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">E</div>
-        <span className="text-xl font-bold text-slate-800 tracking-tight">EcoLink</span>
+      <div className="flex items-center gap-3 p-6 border-b border-slate-100">
+        <img src="/school-tracking/logo.png" alt="Logo" className="w-10 h-10 object-contain rounded-xl shadow-premium border-2 border-white" />
+        <span className="text-xl font-bold text-slate-800 tracking-tight">SchoolTracking</span>
       </div>
       <nav className="p-4 space-y-1">
         {activeMenu.map((item) => (
@@ -73,7 +73,7 @@ const Topbar = ({ toggleSidebar, userRole = "Parent", onLogout }) => {
       
       <div className="flex items-center gap-6">
         <div className="text-right hidden sm:block">
-          <p className="text-sm font-bold text-slate-800">Utilisateur EcoLink</p>
+          <p className="text-sm font-bold text-slate-800">Utilisateur SchoolTracking</p>
           <p className="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{userRole}</p>
         </div>
         <button 
