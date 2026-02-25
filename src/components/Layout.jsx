@@ -6,13 +6,13 @@ const Sidebar = ({ isOpen, toggleSidebar, role, currentView, setView }) => {
       { id: 'dashboard', icon: 'fa-solid fa-house', label: 'Dashboard' },
       { id: 'notes', icon: 'fa-solid fa-file-lines', label: 'Notes de l\'enfant' },
       { id: 'absences', icon: 'fa-solid fa-clipboard-check', label: 'Justifications' },
-      { id: 'messages', icon: 'fa-solid fa-comment-dots', label: 'Messages Reçus' },
+      { id: 'parent_messages', icon: 'fa-solid fa-comment-dots', label: 'Messages Reçus' },
     ],
     teacher: [
       { id: 'attendance', icon: 'fa-solid fa-square-check', label: 'Pointer l\'appel' },
       { id: 'grades', icon: 'fa-solid fa-chart-simple', label: 'Insérer des notes' },
       { id: 'history', icon: 'fa-solid fa-clock-rotate-left', label: 'Historique des Notes' },
-      { id: 'messages', icon: 'fa-solid fa-message', label: 'Messages' },
+      { id: 'teacher_messages', icon: 'fa-solid fa-message', label: 'Messages' },
     ],
     admin: [
       { id: 'management', icon: 'fa-solid fa-users-gear', label: 'Gestion Académique' },

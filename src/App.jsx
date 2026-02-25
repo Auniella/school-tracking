@@ -78,14 +78,14 @@ function App() {
       case 'dashboard': return <ParentDashboard initialView="summary" notifications={notifications} students={students} grades={grades} />;
       case 'notes': return <ParentDashboard initialView="notes" notifications={notifications} students={students} grades={grades} />;
       case 'absences': return <ParentDashboard initialView="absences" notifications={notifications} students={students} grades={grades} />;
-      case 'messages': return <ParentDashboard initialView="messages" notifications={notifications} students={students} grades={grades} />;
+      case 'parent_messages': return <ParentDashboard initialView="messages" notifications={notifications} students={students} grades={grades} />;
       case 'justify': return <ParentDashboard forceOpenModal={true} initialView="summary" notifications={notifications} students={students} grades={grades} />;
 
       // Vues Enseignant
       case 'attendance': return <TeacherAttendance students={students} setStudents={setStudents} updateStudentStatus={updateStudentStatus} />;
       case 'grades': return <GradeInsertion students={students} onSaveGrades={handleAddGradesBatch} />;
       case 'history': return <GradebookHistory grades={grades} students={students} />;
-      case 'messages': return <TeacherSentMessages messages={notifications} />;
+      case 'teacher_messages': return <TeacherSentMessages messages={notifications} />;
 
       // Vues Admin
       case 'management': return <AdminManagement students={students} setStudents={setStudents} />;
