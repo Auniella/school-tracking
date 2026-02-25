@@ -20,11 +20,9 @@ const LoginPage = ({ onLogin }) => {
       return;
     }
 
-    // Strict Password Validation: 8+ chars, 1 uppercase, 1 number, 1 special char
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    
-    if (!passwordRegex.test(password)) {
-      alert("Erreur : Le mot de passe doit contenir au moins 8 caractères, incluant une majuscule, un chiffre et un caractère spécial (@$!%*?&).");
+    // Simplified Password Validation for MVP: 6+ characters
+    if (password.length < 6) {
+      alert("Erreur : Le mot de passe doit contenir au moins 6 caractères.");
       return;
     }
 
