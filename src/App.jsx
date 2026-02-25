@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Layout from './components/Layout'
 import ParentDashboard from './components/ParentDashboard'
 import TeacherAttendance from './components/TeacherAttendance'
+import { sendTwilioMessage } from './services/twilioService';
 import GradeInsertion from './components/GradeInsertion'
 import GradebookHistory from './components/GradebookHistory'
 import AdminManagement from './components/AdminManagement'
@@ -46,8 +47,12 @@ function App() {
   };
 
   // Global Actions
-  const handleSendReminder = (student) => {
+  const handleSendReminder = async (student) => {
     const content = messageTemplate.replace('[NOM]', student.name);
+    
+    // Real Twilio call via Supabase Edge Function
+    const result = await sendTwilioMessage(student.phone || '+1234567890', content);
+
     const newNotification = {
       id: Date.now(),
       recipient: student.parent,
@@ -57,7 +62,12 @@ function App() {
       type: 'absence'
     };
     setNotifications([newNotification, ...notifications]);
-    alert(`Message envoyé à ${student.parent} via WhatsApp !`);
+
+    if (result.success) {
+      alert(`Message envoyé à ${student.parent} via WhatsApp !`);
+    } else {
+      alert("Erreur lors de l'envoi : " + (result.error || "Problème de configuration"));
+    }
   };
 
   const updateStudentStatus = (id, status) => {

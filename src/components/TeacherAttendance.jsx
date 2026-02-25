@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AttendanceCalendar from './AttendanceCalendar';
+import { sendTwilioMessage } from '../services/twilioService';
 
 const TeacherAttendance = ({ students, setStudents, updateStudentStatus }) => {
   const [selectedClass, setSelectedClass] = useState('CM2-A');
@@ -22,11 +23,21 @@ const TeacherAttendance = ({ students, setStudents, updateStudentStatus }) => {
     }
   };
 
-  const handleUpdateStatus = (id, status, notifyParent = false) => {
+  const handleUpdateStatus = async (id, status, notifyParent = false) => {
     updateStudentStatus(id, status);
     if (notifyParent) {
       const student = students.find(s => s.id === id);
-      alert(`Message WhatsApp envoyé : "SchoolTracking : Cher parent, votre enfant ${student.name} est absent ce jour. Merci de régulariser cette situation via votre espace parent."`);
+      const message = `SchoolTracking : Cher parent, votre enfant ${student.name} est absent ce jour. Merci de régulariser cette situation via votre espace parent.`;
+      
+      // Real Twilio call via Supabase Edge Function
+      const result = await sendTwilioMessage(student.phone || '+1234567890', message);
+      
+      if (result.success) {
+        alert("Notification WhatsApp/SMS envoyée avec succès !");
+      } else {
+        alert("Erreur lors de l'envoi : " + (result.error || "Problème de configuration"));
+        console.error("Twilio error:", result.error);
+      }
     }
     setPendingAbsence(null);
   };
