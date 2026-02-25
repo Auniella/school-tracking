@@ -1,0 +1,6 @@
+/* Remove restrictive root constraints to allow Layout.jsx to manage the width */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
