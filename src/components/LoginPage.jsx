@@ -20,9 +20,9 @@ const LoginPage = ({ onLogin }) => {
       return;
     }
 
-    // Simplified Password Validation for MVP: 6+ characters
-    if (password.length < 6) {
-      alert("Erreur : Le mot de passe doit contenir au moins 6 caractères.");
+    // Simplified Password Validation for MVP: 8+ characters
+    if (password.length < 8) {
+      alert("Erreur : Le mot de passe doit contenir au moins 8 caractères.");
       return;
     }
 
